@@ -1,0 +1,17 @@
+﻿<Window x:Class="Exercice3.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Exercice3"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <MediaElement Name="MusicPlayer" LoadedBehavior="Manual" />
+        <Button Name="BtnPlay01" Click="BtnPlay01_OnClick" Width="100px" Height="30px" Margin="208,73,209,216">Play Mp3 1</Button>
+        <Button Name="BtnPlay02" Click="BtnPlay02_OnClick" Width="100px" Height="30px" Margin="208,108,209,181">Play Mp3 2</Button>
+        <Button Name="BtnPlay03" Click="BtnPlay03_OnClick" Width="100px" Height="30px" Margin="208,143,209,146">Play Mp3 3</Button>
+        <Button Name="BtnPlay04" Click="BtnPlay04_OnClick" Width="100px" Height="30px" Margin="208,178,209,111">Play Mp3 4</Button>
+        <Button Name="BtnPlay05" Click="BtnPlay05_OnClick" Width="100px" Height="30px" Margin="208,213,209,76">Play Mp3 5</Button>
+    </Grid>
+</Window>
