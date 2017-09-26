@@ -1,0 +1,64 @@
+﻿<Window x:Class="WindowsProgrammering_Assignment02.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WindowsProgrammering_Assignment02"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="531.171" Width="525">
+    
+    <!--
+    Layouten är uppbyggt med en Grid med två kolumner till grunden.
+    I vardera kolumn så ligger en StackPanel med resterande kontrollers
+    Stackade på varandra
+    -->
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Name="stpForm" Margin="5">
+            <TextBlock Text="Kundtyp"/>
+            <StackPanel Orientation="Horizontal">
+                <RadioButton Name="radCompany" Margin="0,0,5,0" GroupName="grpCustomerType" Content="Företag" IsChecked="True"/>
+                <RadioButton x:Name="radPrivate" GroupName="grpCustomerType" Content="Privat"/>
+            </StackPanel>
+            <TextBlock Text="Företag"/>
+            <TextBox Name="txtCompany"  IsEnabled="{Binding IsChecked, ElementName=radPrivate}"/>
+            <GroupBox Header="Kontaktperson">
+                <StackPanel>
+                    <TextBlock Text="Namn"/>
+                    <TextBox Name="txtContactPersonName"/>
+                    <TextBlock Text="Födelsedatum"/>
+                    <DatePicker Name="dtptxtContactBirthdate"></DatePicker>
+                </StackPanel>
+            </GroupBox>
+            <TextBlock Text="Gatuaddress"/>
+            <TextBox Name="txtAddress"/>
+            <TextBlock Text="Postnummer"/>
+            <TextBox Name="txtPostalCode"/>
+            <TextBlock Text="Ort"/>
+            <TextBox Name="txtCity"/>
+            <TextBlock Text="Telefonnummer"/>
+            <TextBox Name="txtPhone"/>
+            <TextBlock Text="Email"/>
+            <TextBox Name="txtEmail"/>
+            <CheckBox Name="cboNewsletter" Margin="0,5" Content="Vill ha nyhetsbrev"/>
+            <TextBlock Text="Anteckningar"/>
+            <TextBox Name="txtNotes" />
+            <Button Name="btnAdd" Margin="0,10" Content="Lägg till" Click="BtnAdd_OnClick"/>
+        </StackPanel>
+        <StackPanel Margin="5" Grid.Column="1">
+            <TextBlock Text="Sök" />
+            <TextBox Name="txtSearch" Margin="0,0,0,10" TextChanged="TxtSearch_OnTextChanged"/>
+            <ListView Name="lstCustomers" ItemsSource="{Binding}" SelectionChanged="LstCustomers_OnSelectionChanged" >
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Email" Width="auto" DisplayMemberBinding="{Binding Email}"/>
+                        <GridViewColumn Header="Telefonnummer" Width="auto" DisplayMemberBinding="{Binding Phone}"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </StackPanel>
+    </Grid>
+</Window>

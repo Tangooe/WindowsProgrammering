@@ -1,0 +1,34 @@
+﻿<Window x:Class="Exercice01.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Exercice01"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        
+        <StackPanel Margin="5">
+            <TextBlock x:Name="lblName" Text="Namn:" />
+            <TextBox x:Name="txtName" />
+            <TextBlock x:Name="lblEmail" Text="Email:" />
+            <TextBox x:Name="txtEmail" />
+            <Button Name="btnAdd" Width="100" Height="20" Margin="5" Click="BtnAdd_OnClick" Content="Lägg Till"/>
+        </StackPanel>
+        <StackPanel  Grid.Column="1"  Margin="5">
+            <ListView Name="lstPeople" ItemsSource="{Binding}">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Namn" DisplayMemberBinding="{Binding Name}"/>
+                        <GridViewColumn Header="Email" DisplayMemberBinding="{Binding Email}"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+            <Button Name="btnRemoveSelected" Margin="74,5,75,5" Width="100" Height="20" Content="Ta Bort Markerad" Click="BtnRemoveSelected_OnClick"/>
+        </StackPanel>
+    </Grid>
+</Window>

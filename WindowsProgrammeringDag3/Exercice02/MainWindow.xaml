@@ -1,0 +1,26 @@
+﻿<Window x:Class="Exercice02.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Exercice02"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="595.099">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        
+        <Calendar x:Name="calCalendar"></Calendar>
+        <StackPanel Margin="5" Grid.Column="1">
+            <TextBlock Margin="5" Text="DisplayDate:" VerticalAlignment="Center" />
+            <TextBlock Margin="5" Text="SelectedDate:" VerticalAlignment="Center" />
+        </StackPanel>
+        <StackPanel Margin="5" Grid.Column="2">
+            <TextBox Margin="5" VerticalAlignment="Center" Text="{Binding DisplayDate, ElementName=calCalendar}" />
+            <TextBox Margin="5" VerticalAlignment="Center" Text="{Binding SelectedDate, ElementName=calCalendar}" />
+        </StackPanel>
+    </Grid>
+</Window>
